@@ -34,12 +34,12 @@
             <table class="w-full">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Program</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kegiatan</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Peserta</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Urutan</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Program</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Kegiatan</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Peserta</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Urutan</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -71,7 +71,7 @@
                                     <div class="text-sm text-gray-900">
                                         {{ count($program->kegiatan) }} kegiatan
                                     </div>
-                                    <div class="text-xs text-gray-500">
+                                    <div class="text-sm text-gray-500">
                                         {{ implode(', ', array_slice($program->kegiatan, 0, 2)) }}
                                         @if(count($program->kegiatan) > 2)
                                             <span class="text-blue-600">... +{{ count($program->kegiatan) - 2 }} lainnya</span>
@@ -83,22 +83,22 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-medium text-gray-900">{{ number_format($program->peserta_aktif) }}</div>
-                                <div class="text-xs text-gray-500">peserta aktif</div>
+                                <div class="text-sm text-gray-500">peserta aktif</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="text-sm text-gray-900">{{ $program->urutan }}</span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <button onclick="toggleStatus({{ $program->id }}, 'program-kerja')"
-                                        class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200 {{ $program->is_active ? 'bg-green-100 text-green-800 hover:bg-green-200' : 'bg-red-100 text-red-800 hover:bg-red-200' }}">
+                                        class="px-2 py-1 text-sm font-medium rounded-full transition-colors duration-200 {{ $program->is_active ? 'bg-green-100 text-green-800 hover:bg-green-200' : 'bg-red-100 text-red-800 hover:bg-red-200' }}">
                                     {{ $program->is_active ? 'Aktif' : 'Tidak Aktif' }}
                                 </button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <div class="flex items-center space-x-2">
+                                <div class="flex items-center justify-between">
                                     <a href="{{ route('admin.pkk.program-kerja.edit', $program) }}"
                                        class="text-blue-600 hover:text-blue-900 transition-colors duration-200">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                         </svg>
                                     </a>
@@ -106,7 +106,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:text-red-900 transition-colors duration-200">
-                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                             </svg>
                                         </button>

@@ -3,16 +3,19 @@
 
 @section('content')
 <div class="mb-6">
-    <div class="flex items-center space-x-4">
-        <a href="{{ route('admin.posyandu.tenaga-kesehatan') }}" class="text-gray-600 hover:text-gray-900">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-        </a>
+    <div class="flex items-center space-x-4 justify-between">
+
         <div>
             <h1 class="text-3xl font-bold text-gray-900">Edit Tenaga Kesehatan</h1>
             <p class="text-gray-600 mt-1">Edit data {{ $tenagaKesehatan->nama }}</p>
         </div>
+            <a href="{{ route('admin.posyandu.tenaga-kesehatan') }}"
+                class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Kembali
+                </a>
     </div>
 </div>
 

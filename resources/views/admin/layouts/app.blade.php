@@ -196,7 +196,7 @@
     <div class="min-h-screen relative">
         <!-- Enhanced Navigation -->
         <nav class="fixed w-full z-50 top-0">
-            <div class="glass-card shadow-xl border-b border-white/20">
+            <div class="glass-card shadow-lg border-b border-white/20">
                 <div class="px-4 py-4 lg:px-6">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-4">

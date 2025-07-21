@@ -3,14 +3,8 @@
 
 @section('content')
 <div class="mb-6">
-    <div class="flex items-center space-x-4">
-        <a href="{{ route('admin.berita.index') }}"
-           class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-        </a>
-        <div>
+    <div class="flex items-center space-x-4 justify-between">
+       <div>
             <h1 class="text-3xl font-bold text-gray-900">
                 {{ isset($berita) ? 'Edit Berita' : 'Tulis Berita Baru' }}
             </h1>
@@ -18,6 +12,12 @@
                 {{ isset($berita) ? 'Perbarui informasi berita' : 'Buat berita atau pengumuman baru' }}
             </p>
         </div>
+        <a href="{{ route('admin.berita.index') }}" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+        </svg>
+        Kembali
+    </a>
     </div>
 </div>
 

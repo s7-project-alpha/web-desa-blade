@@ -2,16 +2,17 @@
 
 @section('content')
 <div class="mb-6">
-    <div class="flex items-center">
-        <a href="{{ route('admin.demografi.index') }}" class="text-blue-600 hover:text-blue-800 mr-4">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-        </a>
+    <div class="flex items-center justify-between">
         <div>
             <h1 class="text-2xl font-bold text-gray-900">Tambah Data Demografi</h1>
             <p class="text-gray-600">Tambahkan data kependudukan dan demografi desa</p>
         </div>
+        <a href="{{ route('admin.demografi.index') }}" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+            </svg>
+            Kembali
+        </a>
     </div>
 </div>
 

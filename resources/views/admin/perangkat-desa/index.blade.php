@@ -62,7 +62,7 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kontak</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -108,29 +108,29 @@
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <div class="flex space-x-2">
-                                <a href="{{ route('admin.perangkat-desa.show', $perangkat) }}" class="text-gray-600 hover:text-gray-900" title="Lihat">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <div class="flex items-center justify-center gap-1 space-x-2">
+                                <a href="{{ route('admin.perangkat-desa.show', $perangkat) }}" class="text-amber-600 hover:text-amber-900" title="Lihat">
+                                    <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
                                         <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
                                     </svg>
                                 </a>
                                 <a href="{{ route('admin.perangkat-desa.edit', $perangkat) }}" class="text-blue-600 hover:text-blue-900" title="Edit">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                     </svg>
                                 </a>
                                 <form action="{{ route('admin.perangkat-desa.toggle-active', $perangkat) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PATCH')
-                                    <button type="submit" class="text-yellow-600 hover:text-yellow-900" title="{{ $perangkat->is_active ? 'Nonaktifkan' : 'Aktifkan' }}">
+                                    <button type="submit" class="text-gray-600 hover:text-gray-900" title="{{ $perangkat->is_active ? 'Nonaktifkan' : 'Aktifkan' }}">
                                         @if($perangkat->is_active)
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd"></path>
                                                 <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z"></path>
                                             </svg>
                                         @else
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
                                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
                                             </svg>
@@ -141,7 +141,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900" title="Hapus">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                         </svg>
                                     </button>

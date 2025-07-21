@@ -1,14 +1,19 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="mb-6">
-    <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-        <a href="{{ route('admin.galeri.index') }}" class="hover:text-blue-600">Galeri</a>
-        <span>/</span>
-        <span class="text-gray-900">Edit Galeri</span>
-    </div>
-    <h1 class="text-2xl font-bold text-gray-900">Edit Galeri</h1>
+<div class="mb-6 flex items-center justify-between">
+
+   <div>
+     <h1 class="text-2xl font-bold text-gray-900">Edit Galeri</h1>
     <p class="text-gray-600">Ubah informasi foto galeri</p>
+   </div>
+     <a href="{{ route('admin.galeri.index') }}"
+               class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+                <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Kembali
+            </a>
 </div>
 
 <div class="bg-white rounded-lg shadow">
