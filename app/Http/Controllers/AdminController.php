@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\str;
 
 class AdminController extends Controller
 {
@@ -79,7 +82,7 @@ class AdminController extends Controller
             'pengajuan_ditolak' => \App\Models\PengajuanSurat::byStatus('ditolak')->count(),
             'pengajuan_hari_ini' => \App\Models\PengajuanSurat::whereDate('created_at', today())->count(),
             'pengajuan_bulan_ini' => \App\Models\PengajuanSurat::whereMonth('created_at', now()->month)
-                                      ->whereYear('created_at', now()->year)->count(),
+                ->whereYear('created_at', now()->year)->count(),
         ];
 
         // Calculate additional useful metrics
@@ -110,23 +113,23 @@ class AdminController extends Controller
 
         // Get latest pengajuan surat for dashboard
         $latestPengajuanSurat = \App\Models\PengajuanSurat::with([])
-                                    ->latest()
-                                    ->limit(5)
-                                    ->get();
+            ->latest()
+            ->limit(5)
+            ->get();
 
         // Get pengajuan surat statistics by jenis
         $pengajuanByJenis = \App\Models\PengajuanSurat::selectRaw('jenis_surat, COUNT(*) as total')
-                                ->groupBy('jenis_surat')
-                                ->orderBy('total', 'desc')
-                                ->limit(5)
-                                ->get()
-                                ->map(function ($item) {
-                                    $jenisSuratOptions = \App\Models\PengajuanSurat::getJenisSuratOptions();
-                                    return [
-                                        'jenis' => $jenisSuratOptions[$item->jenis_surat] ?? $item->jenis_surat,
-                                        'total' => $item->total
-                                    ];
-                                });
+            ->groupBy('jenis_surat')
+            ->orderBy('total', 'desc')
+            ->limit(5)
+            ->get()
+            ->map(function ($item) {
+                $jenisSuratOptions = \App\Models\PengajuanSurat::getJenisSuratOptions();
+                return [
+                    'jenis' => $jenisSuratOptions[$item->jenis_surat] ?? $item->jenis_surat,
+                    'total' => $item->total
+                ];
+            });
 
         // Get pengajuan surat trend (last 7 days)
         $pengajuanTrend = [];
@@ -145,11 +148,11 @@ class AdminController extends Controller
 
         // Get latest Posyandu kegiatan for dashboard
         $latestPosyanduKegiatan = \App\Models\PosyanduKegiatan::active()
-                                    ->upcoming()
-                                    ->with('posyandu')
-                                    ->latest()
-                                    ->limit(3)
-                                    ->get();
+            ->upcoming()
+            ->with('posyandu')
+            ->latest()
+            ->limit(3)
+            ->get();
 
         // Get latest berita for dashboard
         $latestBerita = \App\Models\Berita::with(['kategori', 'author'])
@@ -159,10 +162,10 @@ class AdminController extends Controller
 
         // Get berita statistics by category
         $beritaByKategori = \App\Models\KategoriBerita::withCount([
-                'beritas' => function ($query) {
-                    $query->where('status', 'published');
-                }
-            ])
+            'beritas' => function ($query) {
+                $query->where('status', 'published');
+            }
+        ])
             ->active()
             ->orderBy('beritas_count', 'desc')
             ->limit(5)
