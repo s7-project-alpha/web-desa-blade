@@ -5,9 +5,9 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-    <div class="absolute inset-0 bg-black opacity-20"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+<section class="relative bg-cover bg-center text-white" style="background-image: url('{{ asset('images/gambar2.png') }}')">
+    <div class="absolute inset-0 bg-black opacity-70"></div>
+    <div class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-4 lg:px-8">
         <div class="text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 Selamat Datang di<br>
@@ -88,26 +88,6 @@
                 </div>
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">745</h3>
                 <p class="text-gray-600">Kepala Keluarga</p>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">12.5</h3>
-                <p class="text-gray-600">Luas (KM²)</p>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-2">8</h3>
-                <p class="text-gray-600">Dusun</p>
             </div>
         </div>
     </div>

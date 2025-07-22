@@ -5,11 +5,11 @@
 
 @section('content')
 <!-- Header Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Perangkat Desa</h1>
-            <p class="text-xl text-blue-100">Struktur Organisasi Pemerintahan Desa Tanjung Selamat</p>
+<section class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% text-white py-16">
+    <div class="flex flex-col items-center justify-center min-h-[196px] mx-auto px-8 sm:px-6 lg:px-10">
+        <div class="text-center max-w-3xl w-full">
+            <h1 class="text-5xl md:text-5xl font-bold mb-4">Perangkat Desa</h1>
+            <p class="text-2xl text-blue-100">Struktur Organisasi Pemerintahan Desa Tanjung Selamat</p>
         </div>
     </div>
 </section>
@@ -111,7 +111,7 @@
                                         @foreach(array_slice($perangkat->tugas_array, 0, 3) as $tugas)
                                             @if(trim($tugas))
                                                 <li class="flex items-start">
-                                                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                                    <span class="w-1.5 h-1.5 bg-gray-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                                                     <span>{{ trim($tugas) }}</span>
                                                 </li>
                                             @endif
@@ -122,7 +122,7 @@
 
                             <div class="flex flex-col gap-2">
                                 @if($perangkat->telepon)
-                                    <a href="tel:{{ $perangkat->telepon }}" class="text-sm text-blue-600 hover:text-blue-800">
+                                    <a href="tel:{{ $perangkat->telepon }}" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
                                         <i class="fas fa-phone mr-1"></i>{{ $perangkat->telepon }}
                                     </a>
                                 @endif
@@ -201,7 +201,7 @@
                             <p class="text-yellow-600 font-semibold mb-4">{{ $anggota->jabatan }}</p>
 
                             @if($anggota->telepon)
-                                <a href="tel:{{ $anggota->telepon }}" class="text-sm text-blue-600 hover:text-blue-800">
+                                <a href="tel:{{ $anggota->telepon }}" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
                                     {{ $anggota->telepon }}
                                 </a>
                             @endif
@@ -214,7 +214,7 @@
 @endif
 
 <!-- Contact CTA Section -->
-<section class="py-16 bg-blue-600">
+<section class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10%">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">
             Butuh Bantuan atau Informasi?

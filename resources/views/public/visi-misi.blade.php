@@ -5,17 +5,17 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% text-white py-20">
+    <div class="min-h-[100px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            <h1 class="text-5xl md:text-5xl font-bold mb-4">
                 Visi, Misi & Nilai Dasar
             </h1>
-            <p class="text-xl text-blue-100 mb-6">
+            <p class="text-2xl text-blue-100 mb-6">
                 Desa Tanjung Selamat
             </p>
             @if($visiMisi)
-                <div class="inline-flex items-center bg-blue-500 bg-opacity-20 rounded-full px-4 py-2">
+                <div class="inline-flex items-center bg-blue-500 bg-opacity-20 rounded-full px-4 py-2 text-xl">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
@@ -191,7 +191,7 @@
 @endif
 
 <!-- CTA Section -->
-<section class="py-16 bg-blue-600">
+<section class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10%">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">
             Ingin Tahu Lebih Lanjut?

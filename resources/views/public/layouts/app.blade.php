@@ -21,33 +21,33 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                            </svg>
+                        <div class="w-10 h-10  flex items-center justify-center mr-3">
+                            <img src="{{ asset('images/DeliSerdang.png') }}"
+                                alt="Logo Desa Tanjung Selamat"
+                                class="h-10 md:h-10 w-auto mr- md:mr-3">
                         </div>
                         <div>
                             <h1 class="text-lg font-bold text-gray-900">Desa Tanjung Selamat</h1>
-                            <p class="text-xs text-gray-600">Kabupaten Xyz</p>
+                            <p class="text-xs text-gray-600">Kecamatan Sunggal</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ route('public.home') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('public.home') ? 'text-blue-600 font-semibold' : '' }}">
+                    <a href="{{ route('public.home') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium {{ request()->routeIs('public.home') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                         Beranda
                     </a>
 
                     <!-- Dropdown Profil -->
                     <div class="relative group">
-                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center {{ request()->routeIs('public.visi-misi') || request()->routeIs('public.demografi') || request()->routeIs('public.perangkat-desa') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                             Profil
                             <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                             <a href="{{ route('public.visi-misi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Visi & Misi</a>
                             <a href="{{ route('public.demografi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Demografi</a>
                             <a href="{{ route('public.perangkat-desa') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perangkat Desa</a>
@@ -56,13 +56,13 @@
 
                     <!-- Dropdown Organisasi -->
                     <div class="relative group">
-                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2  text-sm font-medium flex items-center {{ request()->routeIs('public.bumdes') || request()->routeIs('public.pkk') || request()->routeIs('public.posyandu') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                             Organisasi
                             <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                             <a href="{{ route('public.bumdes') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">BUMDes</a>
                             <a href="{{ route('public.pkk') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">PKK</a>
                             <a href="{{ route('public.posyandu') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Posyandu</a>
@@ -71,38 +71,31 @@
 
                         <!-- Dropdown Layanan -->
                     <div class="relative group">
-                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium flex items-center {{ request()->routeIs('public.pengajuan-surat.*') ? 'text-blue-600 font-semibold' : '' }}">
+                        <button class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center {{ request()->routeIs('public.pengajuan-surat.*') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                             Layanan
                             <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="absolute left-0 mt-2 w-56 bg-white shadow-lg py-1 z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                             <a href="{{ route('public.pengajuan-surat.index') }}"
                             class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {{ request()->routeIs('public.pengajuan-surat.index') ? 'bg-blue-50 text-blue-700' : '' }}">
-                                <svg class="w-4 h-4 mr-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                                    <path d="M4 5a2 2 0 012-2v1a1 1 0 001 1h6a1 1 0 001-1V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"></path>
-                                </svg>
                                 Pengajuan Surat
                             </a>
                             <a href="{{ route('public.pengajuan-surat.track') }}"
                             class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {{ request()->routeIs('public.pengajuan-surat.track') ? 'bg-blue-50 text-blue-700' : '' }}">
-                                <svg class="w-4 h-4 mr-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                                </svg>
                                 Lacak Status
                             </a>
                         </div>
                     </div>
 
-                    <a hr="{{ route('public.berita')}}" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('public.berita*') ? 'text-blue-600 font-semibold' : '' }}">
+                    <a href="{{ route('public.berita')}}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium {{ request()->routeIs('public.berita*') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                         Berita
                     </a>
-                    <a href="{{ route('public.galeri.index') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('public.galeri.index') ? 'text-blue-600 font-semibold' : '' }}">
+                    <a href="{{ route('public.galeri.index') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium {{ request()->routeIs('public.galeri.index') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                         Galeri
                     </a>
-                    <a href="{{ route('public.kontak') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('public.kontak') ? 'text-blue-600 font-semibold' : '' }}">
+                    <a href="{{ route('public.kontak') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium {{ request()->routeIs('public.kontak') ? 'text-blue-600 font-semibold border-b-2 border-gray-600' : '' }}">
                         Kontak
                     </a>
                 </div>
@@ -167,20 +160,20 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
+    <footer class="bg-gray-700 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo & Description -->
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                            </svg>
+                        <div class="w-10 h-10  flex items-center justify-center mr-3">
+                            <img src="{{ asset('images/DeliSerdang.png') }}"
+                                alt="Logo Desa Tanjung Selamat"
+                                class="h-10 md:h-10 w-auto mr- md:mr-3">
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold">Desa Tanjung Selamat</h3>
-                            <p class="text-gray-300 text-sm">Kabupaten Xyz</p>
+                            <h1 class="text-lg font-bold text-white">Desa Tanjung Selamat</h1>
+                            <p class="text-xs text-white">Kecamatan Sunggal</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-4">

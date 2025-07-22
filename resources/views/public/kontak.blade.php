@@ -8,9 +8,9 @@
 @section('content')
 <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center">
+    <div class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10%">
+        <div class="flex flex-col items-center justify-center min-h-[196px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl w-full">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
                     Hubungi Kami
                 </h1>
@@ -110,7 +110,7 @@
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31725.84686616448!2d98.67750842089844!3d3.6485000000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cc1c3eb2fd%3A0x23d431c8a8308c87!2sTanjung%20Selamat%2C%20Sunggal%2C%20Deli%20Serdang%20Regency%2C%20North%20Sumatra!5e0!3m2!1sen!2sid!4v1703123456789!5m2!1sen!2sid"
                             width="100%"
-                            height="400"
+                            height="439"
                             style="border:0;"
                             allowfullscreen=""
                             loading="lazy"

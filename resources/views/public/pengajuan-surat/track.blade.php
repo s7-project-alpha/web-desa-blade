@@ -5,13 +5,13 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="bg-gradient-to-br from-blue-50 to-indigo-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+<div class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% text-white">
+    <div class="flex flex-col items-center justify-center min-h-[197px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl w-full">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
                 Lacak Status Pengajuan
             </h1>
-            <p class="text-xl text-gray-600 mb-8">
+            <p class="text-xl text-white mb-8">
                 Masukkan nomor pengajuan untuk melihat status surat Anda
             </p>
         </div>

@@ -6,10 +6,10 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% text-white py-16">
+    <div class="min-h-[196px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h1 class="text-4xl font-bold mb-4">Berita & Pengumuman</h1>
+            <h1 class="text-5xl font-bold mb-4">Berita & Pengumuman</h1>
             <p class="text-xl text-blue-100 mb-8">Informasi terkini seputar kegiatan, pembangunan, dan pengumuman penting Desa Tanjung Selamat</p>
 
             <!-- Search Form -->
@@ -19,9 +19,9 @@
                            name="q"
                            value="{{ request('q') }}"
                            placeholder="Cari berita atau pengumuman..."
-                           class="flex-1 px-6 py-4 rounded-l-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                           class="flex-1 px-6 py-4 rounded-l-xl border-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300">
                     <button type="submit"
-                            class="px-8 py-4 bg-blue-700 hover:bg-blue-800 rounded-r-xl transition-colors duration-200">
+                            class="px-8 py-4 bg-gray-300 hover:bg-gray-600 rounded-r-xl transition-colors duration-200">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>

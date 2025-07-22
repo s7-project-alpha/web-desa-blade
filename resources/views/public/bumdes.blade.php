@@ -13,21 +13,21 @@
 
 @if($bumdes)
     <!-- Hero Section with Background Image -->
-    <section class="relative h-96 flex items-center justify-center text-white overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-600/80 z-10"></div>
+    <section class="relative min-h-[324px] flex items-center justify-center text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 z-10"></div>
         <div class="absolute inset-0">
             <img src="{{ $bumdes->header_image_url }}" alt="BUMDes Header" class="w-full h-full object-cover">
         </div>
 
         <div class="relative z-20 text-center max-w-4xl mx-auto px-4">
             @if($bumdes->header_title)
-                <h1 class="text-5xl md:text-6xl font-bold mb-4">{{ $bumdes->header_title }}</h1>
+                <h1 class="text-5xl md:text-5xl font-bold mb-4">{{ $bumdes->header_title }}</h1>
             @else
-                <h1 class="text-5xl md:text-6xl font-bold mb-4">{{ $bumdes->nama }}</h1>
+                <h1 class="text-5xl md:text-5xl font-bold mb-4">{{ $bumdes->nama }}</h1>
             @endif
 
             @if($bumdes->header_subtitle)
-                <p class="text-2xl md:text-3xl font-medium text-blue-100">{{ $bumdes->header_subtitle }}</p>
+                <p class="text-2xl md:text-2xl font-medium text-blue-100">{{ $bumdes->header_subtitle }}</p>
             @endif
 
             @if($bumdes->tagline)
@@ -166,20 +166,20 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($timManajemen as $tim)
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200">
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200">
                             <div class="p-6 text-center">
                                 <div class="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gray-200 mb-4">
                                     <img src="{{ $tim->foto_url }}" alt="{{ $tim->nama }}" class="w-full h-full object-cover">
                                 </div>
                                 <h3 class="text-lg font-bold text-gray-900 mb-2">{{ $tim->nama }}</h3>
-                                <p class="text-blue-600 font-semibold mb-3">{{ $tim->jabatan }}</p>
+                                <p class="text-green-600 font-semibold mb-3">{{ $tim->jabatan }}</p>
 
                                 @if($tim->pengalaman)
                                     <p class="text-sm text-gray-600 mb-4">{{ $tim->pengalaman }}</p>
                                 @endif
 
                                 @if($tim->telepon)
-                                    <a href="tel:{{ $tim->telepon }}" class="inline-flex items-center px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition duration-200">
+                                    <a href="tel:{{ $tim->telepon }}" class="inline-flex items-center px-3 py-1 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition duration-200">
                                         <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                                         </svg>
@@ -235,7 +235,7 @@
 @endif
 
 <!-- CTA Section -->
-<section class="py-16 bg-blue-600">
+<section class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">
             Tertarik Bergabung dengan BUMDes?

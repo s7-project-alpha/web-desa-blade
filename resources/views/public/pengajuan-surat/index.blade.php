@@ -5,29 +5,29 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="bg-gradient-to-br from-blue-50 to-indigo-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="py-14 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10%">
+    <div class="min-h-[212px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 class="text-5xl md:text-5xl font-bold text-white mb-4">
                 Pengajuan Surat Online
             </h1>
-            <p class="text-xl text-gray-600 mb-8">
+            <p class="text-2xl text-white mb-8">
                 Ajukan pembuatan surat secara online dengan mudah dan cepat
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <div class="flex items-center text-green-600">
+                <div class="flex items-center text-yellow-300 text-lg">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                     Proses Cepat
                 </div>
-                <div class="flex items-center text-green-600">
+                <div class="flex items-center text-yellow-300 ">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                     Gratis
                 </div>
-                <div class="flex items-center text-green-600">
+                <div class="flex items-center text-yellow-300 ">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
@@ -61,8 +61,8 @@
     </div>
 
     <!-- Form -->
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+    <div class="bg-blue-50 shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4 bg-blue-300 border-blue-400">
             <h2 class="text-xl font-semibold text-gray-900">Form Pengajuan Surat</h2>
         </div>
 
@@ -142,7 +142,7 @@
     <div class="mt-12 text-center">
         <p class="text-gray-600 mb-4">Sudah mengajukan surat sebelumnya?</p>
         <a href="{{ route('public.pengajuan-surat.track') }}"
-           class="inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors duration-200">
+           class="inline-flex items-center px-6 py-3 bg-orange-400 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors duration-200">
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
             </svg>

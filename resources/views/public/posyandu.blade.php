@@ -6,15 +6,15 @@
 
 @section('content')
 <!-- Header Section -->
-<div class="bg-gradient-to-r from-red-500 to-red-600 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 text-white py-14">
+    <div class="min-h-[212px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="text-center">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-6">
                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Posyandu Desa Tanjung Selamat</h1>
+            <h1 class="text-5xl md:text-5xl font-bold mb-4">Posyandu Desa Tanjung Selamat</h1>
             <p class="text-xl text-red-100 max-w-3xl mx-auto">
                 Pos Pelayanan Terpadu - Memberikan layanan kesehatan dasar untuk ibu, bayi, dan balita secara terpadu dan berkelanjutan
             </p>
@@ -274,14 +274,14 @@
 </div>
 
 <!-- Call to Action -->
-<div class="bg-gradient-to-r from-red-500 to-red-600 py-16">
+<div class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 text-white py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">Ayo Bergabung dengan Posyandu</h2>
         <p class="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
             Mari bersama-sama menjaga kesehatan ibu, bayi, dan balita di Desa Tanjung Selamat.
             Kesehatan keluarga adalah investasi terbaik untuk masa depan.
         </p>
-        <a href="{{ route('public.kontak') }}" class="inline-flex items-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-red-600 transition-colors duration-300">
+        <a href="{{ route('public.kontak') }}" class="inline-flex items-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>

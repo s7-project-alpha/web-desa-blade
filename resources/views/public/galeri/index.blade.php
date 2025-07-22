@@ -5,10 +5,10 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h1 class="text-4xl font-bold mb-4">Galeri Desa Tanjung Selamat</h1>
+<section class="bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% py-16">
+    <div class="flex flex-col items-center justify-center min-h-[196px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl w-full">
+            <h1 class="text-5xl font-bold mb-4 text-white">Galeri Desa Tanjung Selamat</h1>
             <p class="text-xl text-blue-100">Koleksi foto kegiatan, wisata, pembangunan, dan budaya Desa Tanjung Selamat</p>
         </div>
     </div>
