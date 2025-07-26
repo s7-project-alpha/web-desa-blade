@@ -146,91 +146,94 @@
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Sample News 1 -->
-            <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200 animate-popIn">
-                <div class="h-48 overflow-hidden">
-                    <img src="{{ asset('images/jalan.png') }}"
-                        alt="Pembangunan Jalan Desa"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 mb-2">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                        </svg>
-                        {{ now()->subDays(2)->format('d M Y') }}
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition duration-200">
-                        <a href="{{ route('public.berita.detail', 1) }}">
-                            Pembangunan Jalan Desa Tahap II Dimulai
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-4">
-                        Pemerintah desa mulai melaksanakan pembangunan jalan desa tahap kedua untuk meningkatkan akses transportasi masyarakat...
-                    </p>
-                    <a href="{{ route('public.berita.detail', 1) }}" class="text-blue-600 hover:text-blue-800 font-medium">
-                        Baca selengkapnya →
-                    </a>
-                </div>
-            </article>
+        @if($beritaTerbaru && $beritaTerbaru->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @foreach($beritaTerbaru as $index => $berita)
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200 animate-popIn {{ $index > 0 ? 'delay-' . ($index * 100) : '' }}">
+                        <div class="h-48 overflow-hidden">
+                            @if($berita->gambar_utama)
+                                <img src="{{ $berita->getGambarUtamaUrl() }}"
+                                    alt="{{ $berita->judul }}"
+                                    class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                            @else
+                                <div class="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    {{ $berita->published_at ? $berita->published_at->format('d M Y') : $berita->created_at->format('d M Y') }}
+                                </div>
+                                @if($berita->kategori)
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
+                                          style="background-color: {{ $berita->kategori->warna ?? '#3B82F6' }}">
+                                        @if($berita->kategori->icon)
+                                            <i class="{{ $berita->kategori->icon }} mr-1"></i>
+                                        @endif
+                                        {{ $berita->kategori->nama }}
+                                    </span>
+                                @endif
+                            </div>
 
-            <!-- Sample News 2 -->
-            <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200 animate-popIn delay-100">
-                <div class="h-48 overflow-hidden">
-                    <img src="{{ asset('images/pelatihan.png') }}"
-                        alt="Pembangunan Jalan Desa"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 mb-2">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                        </svg>
-                        {{ now()->subDays(5)->format('d M Y') }}
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition duration-200">
-                        <a href="{{ route('public.berita.detail', 2) }}">
-                            Pelatihan UMKM untuk Meningkatkan Ekonomi Desa
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-4">
-                        BUMDes bekerja sama dengan Dinas Koperasi mengadakan pelatihan UMKM untuk para pengusaha kecil di desa...
-                    </p>
-                    <a href="{{ route('public.berita.detail', 2) }}" class="text-blue-600 hover:text-blue-800 font-medium">
-                        Baca selengkapnya →
-                    </a>
-                </div>
-            </article>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 hover:text-blue-600 transition duration-200 line-clamp-2">
+                                <a href="{{ route('public.berita.detail', $berita->slug) }}">
+                                    {{ $berita->judul }}
+                                </a>
+                            </h3>
 
-            <!-- Sample News 3 -->
-            <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-200 animate-popIn delay-200">
-                <div class="h-48 overflow-hidden">
-                    <img src="{{ asset('images/vaksin.png') }}"
-                        alt="Pembangunan Jalan Desa"
-                        class="w-full h-full object-cover">
+                            <p class="text-gray-600 mb-4 line-clamp-3">
+                                {{ $berita->ringkasan ?: \Str::limit(strip_tags($berita->konten), 120) }}
+                            </p>
+
+                            <div class="flex items-center justify-between">
+                                <a href="{{ route('public.berita.detail', $berita->slug) }}"
+                                   class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                    Baca selengkapnya
+                                    <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+
+                                @if($berita->views > 0)
+                                    <div class="flex items-center text-gray-400 text-sm">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        {{ number_format($berita->views) }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        @else
+            <!-- No News Available -->
+            <div class="text-center py-12">
+                <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path>
+                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+                    </svg>
                 </div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 mb-2">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                        </svg>
-                        {{ now()->subWeek()->format('d M Y') }}
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition duration-200">
-                        <a href="{{ route('public.berita.detail', 3) }}">
-                            Vaksinasi COVID-19 Dosis Ketiga di Posyandu
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-4">
-                        Posyandu desa mengadakan program vaksinasi COVID-19 dosis ketiga untuk masyarakat yang belum mendapat booster...
-                    </p>
-                    <a href="{{ route('public.berita.detail', 3) }}" class="text-blue-600 hover:text-blue-800 font-medium">
-                        Baca selengkapnya →
-                    </a>
-                </div>
-            </article>
-        </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Belum Ada Berita</h3>
+                <p class="text-gray-600 mb-6">
+                    Berita terbaru akan ditampilkan di sini ketika sudah tersedia.
+                </p>
+                <a href="{{ route('public.berita') }}"
+                   class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-200">
+                    Lihat Semua Berita
+                </a>
+            </div>
+        @endif
     </div>
 </section>
 

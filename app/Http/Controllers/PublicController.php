@@ -14,9 +14,29 @@ class PublicController extends Controller
     /**
      * Display homepage
      */
-    public function index()
+public function index()
     {
-        return view('public.index');
+        // Get latest 3 berita for homepage
+        $beritaTerbaru = Berita::active()
+            ->published()
+            ->with(['kategori', 'author'])
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
+
+        // Get featured berita (optional - for carousel or special display)
+        $beritaUtama = Berita::active()
+            ->published()
+            ->featured()
+            ->with(['kategori', 'author'])
+            ->latest('published_at')
+            ->limit(1)
+            ->first();
+
+        // Get demografi data for statistics
+        $demografi = \App\Models\Demografi::getActive();
+
+        return view('public.index', compact('beritaTerbaru', 'beritaUtama', 'demografi'));
     }
 
     /**
