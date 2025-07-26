@@ -7,7 +7,7 @@
 <!-- Hero Section -->
 <section class="relative bg-cover bg-center text-white" style="background-image: url('{{ asset('images/gambar2.png') }}')">
     <div class="absolute inset-0 bg-black opacity-70"></div>
-    <div class="relative min-h-[400px] flex flex-col items-center justify-center text-center px-4 sm:px-4 lg:px-8">
+    <div class="relative min-h-[500px] flex flex-col items-center justify-center text-center px-4 sm:px-4 lg:px-8">
         <div class="text-center animate-fadeInDown">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 Selamat Datang di<br>
