@@ -163,7 +163,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::get('/export', [App\Http\Controllers\Admin\PengajuanSuratController::class, 'export'])->name('export');
     });
 
-        // Kategori Berita routes
+    // Kategori Berita routes
     Route::resource('kategori-berita', App\Http\Controllers\Admin\KategoriBeritaController::class, [
         'parameters' => ['kategori-berita' => 'kategoriBerita']
     ]);

@@ -1,6 +1,5 @@
 <?php
 // app/Http/Controllers/Admin/KategoriBeritaController.php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -48,17 +47,19 @@ class KategoriBeritaController extends Controller
             ->with('success', 'Kategori berita berhasil ditambahkan');
     }
 
-    public function show(KategoriBerita $kategori_beritum)
+    // FIXED: Ubah parameter dari $kategori_beritum menjadi $kategoriBerita
+    public function show(KategoriBerita $kategoriBerita)
     {
-        $kategoriBerita = $kategori_beritum->load(['beritas' => function($query) {
+        $kategoriBerita = $kategoriBerita->load(['beritas' => function($query) {
             $query->with('author')->latest()->limit(10);
         }]);
+
         return view('admin.kategori-berita.show', compact('kategoriBerita'));
     }
 
-    public function edit(KategoriBerita $kategori_beritum)
+    // FIXED: Ubah parameter dari $kategori_beritum menjadi $kategoriBerita
+    public function edit(KategoriBerita $kategoriBerita)
     {
-        $kategoriBerita = $kategori_beritum;
         return view('admin.kategori-berita.form', compact('kategoriBerita'));
     }
 
@@ -101,8 +102,6 @@ class KategoriBeritaController extends Controller
                 ->with('success', "Kategori berita '{$nama}' berhasil dihapus");
 
         } catch (\Exception $e) {
-
-
             return redirect()->route('admin.kategori-berita.index')
                 ->with('error', 'Terjadi kesalahan saat menghapus kategori: ' . $e->getMessage());
         }
