@@ -51,6 +51,7 @@
                             <a href="{{ route('public.visi-misi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Visi & Misi</a>
                             <a href="{{ route('public.demografi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Demografi</a>
                             <a href="{{ route('public.perangkat-desa') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perangkat Desa</a>
+                            <a href="{{ route('public.sejarah') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sejarah</a>
                         </div>
                     </div>
 
@@ -129,6 +130,7 @@
                         <a href="{{ route('public.visi-misi') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Visi & Misi</a>
                         <a href="{{ route('public.demografi') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Demografi</a>
                         <a href="{{ route('public.perangkat-desa') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Perangkat Desa</a>
+                        <a href="{{ route('public.sejarah') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Sejarah</a>
                     </div>
                 </div>
 
@@ -147,7 +149,22 @@
                     </div>
                 </div>
 
-                <a hr route('public.berita.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Berita</a>
+                <!-- Mobile Layanan Dropdown -->
+                <!-- Mobile Layanan Dropdown -->
+                <div class="px-3 py-2">
+                    <button id="mobile-layanan-button" class="flex items-center justify-between w-full text-base font-medium text-gray-700 hover:text-blue-600">
+                        Layanan
+                        <svg class="ml-1 w-4 h-4 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-layanan-menu" class="mt-2 space-y-1 hidden">
+                        <a href="{{ route('public.pengajuan-surat.index') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Pengajuan Surat</a>
+                        <a href="{{ route('public.pengajuan-surat.track') }}" class="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded">Lacak Status</a>
+                    </div>
+                </div>
+
+                <a href="{{ route('public.berita') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Berita</a>
                 <a href="{{ route('public.galeri.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Galeri</a>
                 <a href="{{ route('public.kontak') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Kontak</a>
             </div>
@@ -261,6 +278,12 @@
 
         document.getElementById('mobile-organisasi-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-organisasi-menu');
+            const icon = this.querySelector('svg');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+        document.getElementById('mobile-layanan-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-layanan-menu');
             const icon = this.querySelector('svg');
             menu.classList.toggle('hidden');
             icon.classList.toggle('rotate-180');

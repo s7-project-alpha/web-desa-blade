@@ -5,13 +5,13 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="py-16 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10% text-white">
+<div class="py-16 bg-gradient-to-r from-slate-500 to-slate-800 text-white">
     <div class="flex flex-col items-center justify-center min-h-[197px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl w-full">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fadeInDown">
                 Lacak Status Pengajuan
             </h1>
-            <p class="text-xl text-white mb-8">
+            <p class="text-xl text-white mb-8 animate-fadeInUp">
                 Masukkan nomor pengajuan untuk melihat status surat Anda
             </p>
         </div>
@@ -22,7 +22,7 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Search Form -->
     <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
-        <div class="text-center mb-6">
+        <div class="text-center mb-6 animate-fadeIn">
             <svg class="w-16 h-16 text-blue-600 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
             </svg>
@@ -391,6 +391,273 @@ function updateProgressIndicators(status) {
 document.getElementById('nomor_pengajuan').addEventListener('input', function() {
     // Remove any non-numeric characters and limit length
     this.value = this.value.replace(/\D/g, '').substring(0, 11);
+});
+</script>
+
+<!-- Custom CSS for Animations -->
+<style>
+    /* Animations - hanya aktif ketika memiliki kelas 'animated' */
+    .animate-fadeInDown {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .animate-fadeInUp {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .animate-fadeIn {
+        opacity: 0;
+    }
+
+    .animate-slideInLeft {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    .animate-slideInRight {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    .animate-slideInUp {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .animate-popIn {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .animate-bounce {
+        animation: bounce 1s infinite;
+    }
+
+    /* Animasi saat elemen muncul */
+    .animate-fadeInDown.animated {
+        animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    .animate-fadeInUp.animated {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fadeIn.animated {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-slideInLeft.animated {
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-slideInRight.animated {
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .animate-slideInUp.animated {
+        animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    .animate-popIn.animated {
+        animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Efek hover scale */
+    .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-scale:hover {
+        transform: scale(1.03);
+    }
+
+    /* Keyframes untuk animasi */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        70% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    /* Animation Delays */
+    .delay-50 { animation-delay: 50ms !important; }
+    .delay-100 { animation-delay: 100ms !important; }
+    .delay-150 { animation-delay: 150ms !important; }
+    .delay-200 { animation-delay: 200ms !important; }
+    .delay-250 { animation-delay: 250ms !important; }
+    .delay-300 { animation-delay: 300ms !important; }
+    .delay-350 { animation-delay: 350ms !important; }
+    .delay-400 { animation-delay: 400ms !important; }
+    .delay-450 { animation-delay: 450ms !important; }
+</style>
+
+<!-- JavaScript for Scroll Trigger Animations -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk animasi counter
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Durasi animasi dalam ms
+        const options = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    const prefix = entry.target.getAttribute('data-prefix') || '';
+                    const suffix = entry.target.getAttribute('data-suffix') || '';
+                    const count = entry.target;
+                    const increment = target / speed;
+
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            count.textContent = prefix + Math.floor(current).toLocaleString('id-ID') + suffix;
+                            setTimeout(updateCounter, 1);
+                        } else {
+                            count.textContent = prefix + target.toLocaleString('id-ID') + suffix;
+                        }
+                    };
+
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    }
+
+    // Fungsi untuk mengatur animasi saat scroll
+    function setupScrollAnimations() {
+        // Ambil semua elemen yang memiliki kelas animasi
+        const animatedElements = document.querySelectorAll(
+            '[class*="animate-"]'
+        );
+
+        // Buat Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Tambahkan kelas 'animated' untuk memicu animasi
+                    const element = entry.target;
+
+                    // Handle delay inline style
+                    let delay = element.style.animationDelay || '0ms';
+                    delay = parseInt(delay) || 0;
+
+                    setTimeout(() => {
+                        element.classList.add('animated');
+
+                        // Jika elemen adalah counter, jalankan animasi counter
+                        if (element.classList.contains('counter')) {
+                            animateCounters();
+                        }
+                    }, delay);
+
+                    // Stop observing setelah animasi dipicu
+                    observer.unobserve(element);
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger ketika 10% elemen terlihat
+            rootMargin: '0px 0px -50px 0px' // Adjust untuk trigger lebih awal
+        });
+
+        // Observe semua elemen animasi
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // Panggil fungsi setup
+    setupScrollAnimations();
+    animateCounters();
 });
 </script>
 @endsection

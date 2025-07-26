@@ -46,6 +46,12 @@ class PublicController extends Controller
         return view('public.perangkat-desa', compact('perangkatData'));
     }
 
+    public function sejarah()
+    {
+        return view('public.sejarah');
+    }
+
+
     /**
      * Display bumdes page
      */

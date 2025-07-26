@@ -11,6 +11,7 @@ Route::get('/', [PublicController::class, 'index'])->name('public.home');
 Route::get('/visi-misi', [PublicController::class, 'visiMisi'])->name('public.visi-misi');
 Route::get('/demografi', [PublicController::class, 'demografi'])->name('public.demografi');
 Route::get('/perangkat-desa', [PublicController::class, 'perangkatDesa'])->name('public.perangkat-desa');
+Route::get('/sejarah', [PublicController::class, 'sejarah'])->name('public.sejarah');
 Route::get('/bumdes', [PublicController::class, 'bumdes'])->name('public.bumdes');
 Route::get('/pkk', [PublicController::class, 'pkk'])->name('public.pkk');
 Route::get('/posyandu', [PublicController::class, 'posyandu'])->name('public.posyandu');

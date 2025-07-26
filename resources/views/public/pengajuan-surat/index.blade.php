@@ -5,29 +5,29 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="py-14 bg-gradient-to-r from-emerald-500 to-90% via-sky-500 via-30% to-indigo-500 from-10%">
+<div class="py-14 bg-gradient-to-br from-blue-600 to-blue-900">
     <div class="min-h-[212px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h1 class="text-5xl md:text-5xl font-bold text-white mb-4">
+            <h1 class="text-5xl md:text-5xl font-bold text-white mb-4 animate-fadeInDown">
                 Pengajuan Surat Online
             </h1>
-            <p class="text-2xl text-white mb-8">
+            <p class="text-2xl text-white mb-8  animate-fadeInUp">
                 Ajukan pembuatan surat secara online dengan mudah dan cepat
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <div class="flex items-center text-yellow-300 text-lg">
+                <div class="flex items-center text-yellow-300 text-lg animate-fadeIn">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                     Proses Cepat
                 </div>
-                <div class="flex items-center text-yellow-300 ">
+                <div class="flex items-center text-yellow-300 animate-fadeIn">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                     Gratis
                 </div>
-                <div class="flex items-center text-yellow-300 ">
+                <div class="flex items-center text-yellow-300 animate-fadeIn">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
@@ -307,6 +307,273 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         this.value = value;
     });
+});
+</script>
+
+<!-- Custom CSS for Animations -->
+<style>
+    /* Animations - hanya aktif ketika memiliki kelas 'animated' */
+    .animate-fadeInDown {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .animate-fadeInUp {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .animate-fadeIn {
+        opacity: 0;
+    }
+
+    .animate-slideInLeft {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    .animate-slideInRight {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    .animate-slideInUp {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .animate-popIn {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .animate-bounce {
+        animation: bounce 1s infinite;
+    }
+
+    /* Animasi saat elemen muncul */
+    .animate-fadeInDown.animated {
+        animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    .animate-fadeInUp.animated {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fadeIn.animated {
+        animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-slideInLeft.animated {
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-slideInRight.animated {
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .animate-slideInUp.animated {
+        animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    .animate-popIn.animated {
+        animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Efek hover scale */
+    .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-scale:hover {
+        transform: scale(1.03);
+    }
+
+    /* Keyframes untuk animasi */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        70% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    /* Animation Delays */
+    .delay-50 { animation-delay: 50ms !important; }
+    .delay-100 { animation-delay: 100ms !important; }
+    .delay-150 { animation-delay: 150ms !important; }
+    .delay-200 { animation-delay: 200ms !important; }
+    .delay-250 { animation-delay: 250ms !important; }
+    .delay-300 { animation-delay: 300ms !important; }
+    .delay-350 { animation-delay: 350ms !important; }
+    .delay-400 { animation-delay: 400ms !important; }
+    .delay-450 { animation-delay: 450ms !important; }
+</style>
+
+<!-- JavaScript for Scroll Trigger Animations -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk animasi counter
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Durasi animasi dalam ms
+        const options = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    const prefix = entry.target.getAttribute('data-prefix') || '';
+                    const suffix = entry.target.getAttribute('data-suffix') || '';
+                    const count = entry.target;
+                    const increment = target / speed;
+
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            count.textContent = prefix + Math.floor(current).toLocaleString('id-ID') + suffix;
+                            setTimeout(updateCounter, 1);
+                        } else {
+                            count.textContent = prefix + target.toLocaleString('id-ID') + suffix;
+                        }
+                    };
+
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    }
+
+    // Fungsi untuk mengatur animasi saat scroll
+    function setupScrollAnimations() {
+        // Ambil semua elemen yang memiliki kelas animasi
+        const animatedElements = document.querySelectorAll(
+            '[class*="animate-"]'
+        );
+
+        // Buat Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Tambahkan kelas 'animated' untuk memicu animasi
+                    const element = entry.target;
+
+                    // Handle delay inline style
+                    let delay = element.style.animationDelay || '0ms';
+                    delay = parseInt(delay) || 0;
+
+                    setTimeout(() => {
+                        element.classList.add('animated');
+
+                        // Jika elemen adalah counter, jalankan animasi counter
+                        if (element.classList.contains('counter')) {
+                            animateCounters();
+                        }
+                    }, delay);
+
+                    // Stop observing setelah animasi dipicu
+                    observer.unobserve(element);
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger ketika 10% elemen terlihat
+            rootMargin: '0px 0px -50px 0px' // Adjust untuk trigger lebih awal
+        });
+
+        // Observe semua elemen animasi
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // Panggil fungsi setup
+    setupScrollAnimations();
+    animateCounters();
 });
 </script>
 @endsection
