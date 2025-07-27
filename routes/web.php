@@ -216,6 +216,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::delete('/layanan/{layanan}', [App\Http\Controllers\Admin\PosyanduController::class, 'destroyLayanan'])->name('layanan.destroy');
     });
 
+    // Enhanced Profile routes
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('update');
+        Route::patch('/password', [ProfileController::class, 'updatePassword'])->name('update-password');
+        Route::delete('/avatar', [ProfileController::class, 'deleteAvatar'])->name('delete-avatar');
+        Route::patch('/toggle-active', [ProfileController::class, 'toggleActive'])->name('toggle-active');
+        Route::get('/download-data', [ProfileController::class, 'downloadData'])->name('download-data');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
+    });
+
 });
 
 // Auth Routes (Laravel Breeze)

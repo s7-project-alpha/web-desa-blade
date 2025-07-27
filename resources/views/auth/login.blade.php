@@ -12,14 +12,14 @@
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-br from-blue-50 to-indigo-100">
         <!-- Header -->
+        <div class="w-16 h-16 mb-4">
+            <img src="{{ asset('images/DeliSerdang.png') }}"
+                alt="Logo Kabupaten Deliserdang"
+                class="w-full h-full object-contain" style="max-width:64px;max-height:64px;">
+        </div>
+
         <div class="text-center mb-8">
-            <div class="flex justify-center mb-4">
-                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
-                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-            </div>
+
             <h1 class="text-2xl font-bold text-gray-900 mb-2">Admin Panel</h1>
             <h2 class="text-lg text-gray-600">Desa Tanjung Selamat</h2>
         </div>
