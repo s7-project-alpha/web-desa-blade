@@ -121,81 +121,79 @@
         @endif
 
         @if($galeri->count() > 0)
-            <!-- Masonry Grid -->
-            <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            <!-- Gunakan Grid bukan Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach($galeri as $item)
-                    <div class="break-inside-avoid">
-                        <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                            <a href="{{ route('public.galeri.detail', $item->slug) }}">
-                                <div class="relative">
-                                    <img src="{{ $item->foto_url }}"
-                                         alt="{{ $item->alt_text }}"
-                                         class="w-full h-auto group-hover:scale-105 transition duration-300">
+                    <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                        <a href="{{ route('public.galeri.detail', $item->slug) }}">
+                            <div class="relative h-60">
+                                <img src="{{ $item->foto_url }}"
+                                     alt="{{ $item->alt_text }}"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
 
-                                    <!-- Category Badge -->
-                                    <div class="absolute top-3 left-3">
-                                        <span class="px-3 py-1 rounded-full text-xs font-medium text-white"
-                                              style="background-color: {{ $item->kategori->warna_badge }}">
-                                            {{ $item->kategori->nama_kategori }}
-                                        </span>
-                                    </div>
+                                <!-- Category Badge -->
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-3 py-1 rounded-full text-xs font-medium text-white"
+                                          style="background-color: {{ $item->kategori->warna_badge }}">
+                                        {{ $item->kategori->nama_kategori }}
+                                    </span>
+                                </div>
 
-                                    <!-- Views -->
-                                    <div class="absolute top-3 right-3">
-                                        <span class="bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded flex items-center">
-                                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                                <!-- Views -->
+                                <div class="absolute top-3 right-3">
+                                    <span class="bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded flex items-center">
+                                        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        {{ $item->views_count }}
+                                    </span>
+                                </div>
+
+                                <!-- Hover Overlay -->
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition duration-300 flex items-center justify-center">
+                                    <div class="transform scale-0 group-hover:scale-100 transition duration-300">
+                                        <div class="bg-white rounded-full p-3">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                             </svg>
-                                            {{ $item->views_count }}
-                                        </span>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Hover Overlay -->
-                                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition duration-300 flex items-center justify-center">
-                                        <div class="transform scale-0 group-hover:scale-100 transition duration-300">
-                                            <div class="bg-white rounded-full p-3">
-                                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">{{ $item->judul }}</h3>
+
+                                @if($item->deskripsi)
+                                    <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ $item->deskripsi }}</p>
+                                @endif
+
+                                <!-- Meta Info -->
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <div class="flex items-center space-x-3">
+                                        @if($item->photographer)
+                                            <span class="flex items-center">
+                                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                                                 </svg>
-                                            </div>
-                                        </div>
+                                                {{ Str::limit($item->photographer, 10) }}
+                                            </span>
+                                        @endif
+                                        @if($item->lokasi)
+                                            <span class="flex items-center">
+                                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                {{ Str::limit($item->lokasi, 10) }}
+                                            </span>
+                                        @endif
                                     </div>
+                                    <span>{{ $item->created_at->format('d M Y') }}</span>
                                 </div>
-
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">{{ $item->judul }}</h3>
-
-                                    @if($item->deskripsi)
-                                        <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ $item->deskripsi }}</p>
-                                    @endif
-
-                                    <!-- Meta Info -->
-                                    <div class="flex items-center justify-between text-xs text-gray-500">
-                                        <div class="flex items-center space-x-3">
-                                            @if($item->photographer)
-                                                <span class="flex items-center">
-                                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    {{ Str::limit($item->photographer, 10) }}
-                                                </span>
-                                            @endif
-                                            @if($item->lokasi)
-                                                <span class="flex items-center">
-                                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    {{ Str::limit($item->lokasi, 10) }}
-                                                </span>
-                                            @endif
-                                        </div>
-                                        <span>{{ $item->created_at->format('d M Y') }}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
