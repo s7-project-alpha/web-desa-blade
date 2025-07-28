@@ -171,10 +171,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // Berita routes
     Route::resource('berita', App\Http\Controllers\Admin\BeritaController::class);
-        Route::patch('kategori-berita/{kategoriBerita}/toggle-active', [
-        App\Http\Controllers\Admin\KategoriBeritaController::class,
-        'toggleActive'
-    ])->name('kategori-berita.toggle-active');
+    Route::patch('berita/{berita}/toggle-active', [App\Http\Controllers\Admin\BeritaController::class, 'toggleActive'])->name('berita.toggle-active');
     Route::patch('berita/{berita}/toggle-featured', [App\Http\Controllers\Admin\BeritaController::class, 'toggleFeatured'])->name('berita.toggle-featured');
     Route::patch('berita/{berita}/publish', [App\Http\Controllers\Admin\BeritaController::class, 'publish'])->name('berita.publish');
     Route::patch('berita/{berita}/unpublish', [App\Http\Controllers\Admin\BeritaController::class, 'unpublish'])->name('berita.unpublish');
