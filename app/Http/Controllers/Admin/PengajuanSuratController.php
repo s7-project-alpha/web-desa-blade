@@ -72,7 +72,7 @@ class PengajuanSuratController extends Controller
             $this->sendWhatsAppNotification($pengajuanSurat);
         }
 
-        return redirect()->back()->with('success', 'Status pengajuan berhasil diperbarui');
+        return redirect()->route('admin.pengajuan-surat.index')->with('success', 'Status pengajuan berhasil diperbarui');
     }
 
     /**
