@@ -47,17 +47,26 @@ class KategoriBeritaController extends Controller
             ->with('success', 'Kategori berita berhasil ditambahkan');
     }
 
-    // FIXED: Ubah parameter dari $kategori_beritum menjadi $kategoriBerita
+    // PERBAIKAN UTAMA: Tambahkan withCount untuk menghitung total berita
     public function show(KategoriBerita $kategoriBerita)
     {
-        $kategoriBerita = $kategoriBerita->load(['beritas' => function($query) {
+        // Load kategori dengan count berita dan berita terbaru
+        $kategoriBerita = $kategoriBerita->loadCount([
+            'beritas', // Total semua berita
+            'beritasActive', // Berita yang aktif dan published
+            'beritas as beritas_published_count' => function($query) {
+                $query->where('status', 'published');
+            },
+            'beritas as beritas_draft_count' => function($query) {
+                $query->where('status', 'draft');
+            }
+        ])->load(['beritas' => function($query) {
             $query->with('author')->latest()->limit(10);
         }]);
 
         return view('admin.kategori-berita.show', compact('kategoriBerita'));
     }
 
-    // FIXED: Ubah parameter dari $kategori_beritum menjadi $kategoriBerita
     public function edit(KategoriBerita $kategoriBerita)
     {
         return view('admin.kategori-berita.form', compact('kategoriBerita'));
@@ -100,7 +109,6 @@ class KategoriBeritaController extends Controller
 
             return redirect()->route('admin.kategori-berita.index')
                 ->with('success', "Kategori berita '{$nama}' berhasil dihapus");
-
         } catch (\Exception $e) {
             return redirect()->route('admin.kategori-berita.index')
                 ->with('error', 'Terjadi kesalahan saat menghapus kategori: ' . $e->getMessage());

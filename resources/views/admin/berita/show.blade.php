@@ -147,55 +147,6 @@
 
     <!-- Sidebar -->
     <div class="lg:col-span-1 space-y-6">
-        <!-- Quick Actions -->
-        <div class="glass-card rounded-2xl p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Aksi Cepat</h3>
-            <div class="space-y-3">
-                <a href="{{ route('admin.berita.edit', $berita) }}"
-                   class="w-full btn-modern flex items-center justify-center px-4 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-200">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                    </svg>
-                    Edit Berita
-                </a>
-
-                @if($berita->status === 'draft')
-                    <form action="{{ route('admin.berita.publish', $berita) }}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="w-full flex items-center justify-center px-4 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition-colors duration-200">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                            Publikasikan
-                        </button>
-                    </form>
-                @elseif($berita->status === 'published')
-                    <form action="{{ route('admin.berita.unpublish', $berita) }}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="w-full flex items-center justify-center px-4 py-3 bg-orange-600 text-white font-medium rounded-xl hover:bg-orange-700 transition-colors duration-200">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9V6a4 4 0 118 0v3M6 9h12a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2v-9a2 2 0 012-2z"></path>
-                            </svg>
-                            Batal Publikasi
-                        </button>
-                    </form>
-                @endif
-
-                <form action="{{ route('admin.berita.toggle-featured', $berita) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="w-full flex items-center justify-center px-4 py-3 {{ $berita->is_featured ? 'bg-yellow-600 text-white' : 'border border-gray-300 text-gray-700' }} font-medium rounded-xl hover:bg-yellow-700 hover:text-white transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                        </svg>
-                        {{ $berita->is_featured ? 'Hapus dari Featured' : 'Jadikan Featured' }}
-                    </button>
-                </form>
-            </div>
-        </div>
-
         <!-- Article Details -->
         <div class="glass-card rounded-2xl p-6">
             <h3 class="text-lg font-semibold text-gray-900 mb-4">Detail Berita</h3>

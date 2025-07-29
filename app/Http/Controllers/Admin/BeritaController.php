@@ -1,6 +1,5 @@
 <?php
 // app/Http/Controllers/Admin/BeritaController.php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -38,7 +37,6 @@ class BeritaController extends Controller
         }
 
         $beritas = $query->paginate(15);
-
         $kategoris = KategoriBerita::getForSelect();
         $statistics = Berita::getStatistics();
 
@@ -107,23 +105,20 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil ditambahkan');
     }
 
-    public function show(Berita $beritum)
+    public function show(Berita $berita)
     {
-        $berita = $beritum->load(['kategori', 'author']);
+        $berita = $berita->load(['kategori', 'author']);
         return view('admin.berita.show', compact('berita'));
     }
 
-    public function edit(Berita $beritum)
+    public function edit(Berita $berita)
     {
-        $berita = $beritum;
         $kategoris = KategoriBerita::getForSelect();
         return view('admin.berita.form', compact('berita', 'kategoris'));
     }
 
-    public function update(Request $request, Berita $beritum)
+    public function update(Request $request, Berita $berita)
     {
-        $berita = $beritum;
-
         $validated = $request->validate([
             'judul' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:beritas,slug,' . $berita->id,
@@ -154,7 +149,6 @@ class BeritaController extends Controller
             if ($berita->gambar_utama) {
                 Storage::disk('public')->delete($berita->gambar_utama);
             }
-
             $validated['gambar_utama'] = $request->file('gambar_utama')
                 ->store('berita', 'public');
         }
@@ -182,10 +176,8 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil diperbarui');
     }
 
-    public function destroy(Berita $beritum)
+    public function destroy(Berita $berita)
     {
-        $berita = $beritum;
-
         // Delete image file
         if ($berita->gambar_utama) {
             Storage::disk('public')->delete($berita->gambar_utama);
@@ -197,9 +189,9 @@ class BeritaController extends Controller
             ->with('success', 'Berita berhasil dihapus');
     }
 
-    public function toggleActive(Berita $beritum)
+    // PERBAIKAN: Ganti parameter dari $beritum ke $berita
+    public function toggleActive(Berita $berita)
     {
-        $berita = $beritum;
         $berita->update([
             'is_active' => !$berita->is_active
         ]);
@@ -210,9 +202,9 @@ class BeritaController extends Controller
             ->with('success', "Berita berhasil {$status}");
     }
 
-    public function toggleFeatured(Berita $beritum)
+    // PERBAIKAN: Ganti parameter dari $beritum ke $berita
+    public function toggleFeatured(Berita $berita)
     {
-        $berita = $beritum;
         $berita->update([
             'is_featured' => !$berita->is_featured
         ]);
@@ -223,27 +215,27 @@ class BeritaController extends Controller
             ->with('success', "Berita berhasil {$status}");
     }
 
-    public function publish(Berita $beritum)
+    // PERBAIKAN: Ganti parameter dari $beritum ke $berita
+    public function publish(Berita $berita)
     {
-        $berita = $beritum;
         $berita->publish();
 
         return redirect()->back()
             ->with('success', 'Berita berhasil dipublikasikan');
     }
 
-    public function unpublish(Berita $beritum)
+    // PERBAIKAN: Ganti parameter dari $beritum ke $berita
+    public function unpublish(Berita $berita)
     {
-        $berita = $beritum;
         $berita->unpublish();
 
         return redirect()->back()
             ->with('success', 'Berita berhasil dibatalkan publikasinya');
     }
 
-    public function archive(Berita $beritum)
+    // PERBAIKAN: Ganti parameter dari $beritum ke $berita
+    public function archive(Berita $berita)
     {
-        $berita = $beritum;
         $berita->archive();
 
         return redirect()->back()
@@ -265,20 +257,24 @@ class BeritaController extends Controller
                 $beritas->update(['status' => 'published', 'published_at' => now()]);
                 $message = 'Berita terpilih berhasil dipublikasikan';
                 break;
+
             case 'unpublish':
                 $beritas->update(['status' => 'draft', 'published_at' => null]);
                 $message = 'Berita terpilih berhasil dibatalkan publikasinya';
                 break;
+
             case 'archive':
                 $beritas->update(['status' => 'archived']);
                 $message = 'Berita terpilih berhasil diarsipkan';
                 break;
+
             case 'toggle_featured':
                 $beritas->get()->each(function($berita) {
                     $berita->update(['is_featured' => !$berita->is_featured]);
                 });
                 $message = 'Status berita utama berhasil diubah';
                 break;
+
             case 'delete':
                 // Delete associated images
                 foreach ($beritas->get() as $berita) {
