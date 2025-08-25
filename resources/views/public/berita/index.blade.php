@@ -20,12 +20,14 @@
                            value="{{ request('q') }}"
                            placeholder="Cari berita atau pengumuman..."
                            class="flex-1 px-6 py-4 rounded-l-xl border-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    <button type="submit"
-                            class="px-8 py-4 bg-gray-100 hover:bg-gray-300 rounded-r-xl transition-colors duration-200">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </button>
+                   <button type="submit"
+                    class="px-5 py-3 bg-teal-400 text-white rounded-r-xl shadow-md hover:bg-teal-600 focus:ring-2 focus:ring-teal-400 transition-all duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+
                 </form>
             </div>
         </div>
