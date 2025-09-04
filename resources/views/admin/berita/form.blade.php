@@ -195,7 +195,7 @@
                     <label for="is_urgent" class="ml-2 text-sm text-gray-700">Pengumuman penting</label>
                 </div>
 
-                <div class="flex items-center">
+                {{-- <div class="flex items-center">
                     <input type="checkbox"
                            id="allow_comments"
                            name="allow_comments"
@@ -203,7 +203,7 @@
                            {{ old('allow_comments', isset($berita) ? $berita->allow_comments : true) ? 'checked' : '' }}
                            class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
                     <label for="allow_comments" class="ml-2 text-sm text-gray-700">Izinkan komentar</label>
-                </div>
+                </div> --}}
             </div>
         </div>
 

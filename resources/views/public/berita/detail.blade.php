@@ -142,7 +142,7 @@
                     @endif
 
                     <!-- Share Buttons -->
-                    <div class="mt-8 pt-6 border-t border-gray-200">
+                    {{-- <div class="mt-8 pt-6 border-t border-gray-200">
                         <h3 class="text-sm font-medium text-gray-700 mb-4">Bagikan:</h3>
                         <div class="flex space-x-4">
                             <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
@@ -170,7 +170,7 @@
                                 WhatsApp
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </article>
 
