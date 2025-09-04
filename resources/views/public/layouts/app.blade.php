@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Desa Tanjung Selamat')</title>
     <meta name="description" content="@yield('description', 'Website resmi Desa Tanjung Selamat - Informasi desa, berita, dan layanan masyarakat')">
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
