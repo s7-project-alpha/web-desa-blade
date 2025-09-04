@@ -190,6 +190,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const isFullWidth = ['alamat', 'keperluan', 'pengikut', 'tempat_tinggal'].includes(key);
             const colSpan = isFullWidth ? 'md:col-span-2' : '';
 
+            // Add special validation for NIK
+            if (key === 'nik') {
+                html += `
+                    <div class="${colSpan}">
+                        <label for="data_surat_${key}" class="block text-sm font-medium text-gray-700 mb-2">
+                            ${label} <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" name="data_surat[${key}]" id="data_surat_${key}" required
+                               value="${getOldValue(key)}" maxlength="16" pattern="[0-9]{16}"
+                               oninput="validateNIK(this)"
+                               class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                               placeholder="Masukkan 16 digit NIK">
+                        <p class="mt-1 hidden text-sm text-red-600" id="nik-error">NIK harus terdiri dari 16 digit angka</p>
+                    </div>
+                `;
+                return;
+            }
+
             if (key === 'jenis_kelamin') {
                 html += `
                     <div class="${colSpan}">
@@ -299,12 +317,53 @@ document.addEventListener('DOMContentLoaded', function() {
         return '';
     }
 
+    // Validate NIK
+    function validateNIK(input) {
+        const nikError = document.getElementById('nik-error');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Remove any non-numeric characters
+        input.value = input.value.replace(/\D/g, '');
+
+        if (input.value.length !== 16) {
+            nikError.classList.remove('hidden');
+            input.classList.add('border-red-500');
+            submitBtn.disabled = true;
+            return false;
+        } else {
+            nikError.classList.add('hidden');
+            input.classList.remove('border-red-500');
+            submitBtn.disabled = false;
+            return true;
+        }
+    }
+
+    // Add form submission validation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const nikInput = document.querySelector('input[name="data_surat[nik]"]');
+        if (nikInput && !validateNIK(nikInput)) {
+            e.preventDefault();
+            nikInput.focus();
+            return false;
+        }
+    });
+
     // Auto-format WhatsApp number
     document.getElementById('nomor_whatsapp').addEventListener('input', function() {
         let value = this.value.replace(/\D/g, ''); // Remove non-digits
-        if (value.startsWith('0')) {
-            value = '62' + value.substring(1);
+
+        // Ensure it starts with 08
+        if (!value.startsWith('08')) {
+            if (value.startsWith('8')) {
+                value = '0' + value;
+            } else if (value.startsWith('62')) {
+                value = '0' + value.substring(2);
+            }
         }
+
+        // Limit to 13 digits
+        value = value.substring(0, 13);
+
         this.value = value;
     });
 });

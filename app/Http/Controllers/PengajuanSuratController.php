@@ -39,8 +39,11 @@ class PengajuanSuratController extends Controller
         $validator = Validator::make($request->all(), [
             'jenis_surat' => 'required|in:' . implode(',', array_keys(PengajuanSurat::getJenisSuratOptions())),
             'nama' => 'required|string|max:255',
-            'nomor_whatsapp' => 'required|string|max:20',
+            'nomor_whatsapp' => ['required', 'string', 'regex:/^08[0-9]{10,11}$/'],
             'data_surat' => 'required|array'
+        ], [
+            'nomor_whatsapp.regex' => 'Nomor WhatsApp harus dimulai dengan 08 dan terdiri dari 12-13 digit.',
+            'nomor_whatsapp.regex' => 'Nomor WhatsApp harus dimulai dengan 08 dan hanya berisi angka.'
         ]);
 
         if ($validator->fails()) {
@@ -58,6 +61,15 @@ class PengajuanSuratController extends Controller
                 return redirect()->back()
                                ->withErrors(["data_surat.{$fieldKey}" => "Field {$fieldLabel} wajib diisi"])
                                ->withInput();
+            }
+
+            // Validasi khusus untuk NIK
+            if ($fieldKey === 'nik') {
+                if (!preg_match('/^[0-9]{16}$/', $dataSurat[$fieldKey])) {
+                    return redirect()->back()
+                                   ->withErrors(["data_surat.{$fieldKey}" => "NIK harus 16 digit angka"])
+                                   ->withInput();
+                }
             }
         }
 

@@ -10,6 +10,7 @@ use App\Mail\KontakMessageMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Log;
 
 class KontakMessageController extends Controller
 {
@@ -30,7 +31,7 @@ class KontakMessageController extends Controller
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'telepon' => 'nullable|string|max:20',
+            'telepon' => ['nullable', 'string', 'regex:/^08[0-9]{10,11}$/'],
             'subjek' => 'required|string|max:255',
             'pesan' => 'required|string|max:2000',
         ], [
@@ -39,7 +40,7 @@ class KontakMessageController extends Controller
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
             'email.max' => 'Email tidak boleh lebih dari 255 karakter.',
-            'telepon.max' => 'Nomor telepon tidak boleh lebih dari 20 karakter.',
+            'telepon.regex' => 'Nomor telepon harus dimulai dengan 08 dan terdiri dari 12-13 digit.',
             'subjek.required' => 'Subjek wajib diisi.',
             'subjek.max' => 'Subjek tidak boleh lebih dari 255 karakter.',
             'pesan.required' => 'Pesan wajib diisi.',
@@ -73,7 +74,7 @@ class KontakMessageController extends Controller
             ]);
 
         } catch (\Exception $e) {
-            \Log::error('Error sending kontak message: ' . $e->getMessage());
+            Log::error('Error sending kontak message: ' . $e->getMessage());
 
             return response()->json([
                 'success' => false,
