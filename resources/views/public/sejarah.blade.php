@@ -1,10 +1,7 @@
 @extends('public.layouts.app')
-
 @section('title', 'Sejarah Desa - Desa Tanjung Selamat')
 @section('description', 'Sejarah Desa Tanjung Selamat - Dari kebun teh Belawan State hingga menjadi Desa yang mandiri.')
-
 @section('content')
-
 <!-- Hero Section with Parallax Effect -->
 <section class="bg-gradient-to-r from-emerald-500 via-green-600 to-green-700 text-white py-20 relative overflow-hidden">
     <div class="absolute inset-0 bg-black/10 z-0"></div>
@@ -20,7 +17,7 @@
 
 <!-- Profil Desa Section -->
 <section class="py-16 bg-gradient-to-b from-white to-emerald-50">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             <!-- Header with decorative elements -->
             <div class="text-center mb-12 relative animate-fadeIn">
@@ -107,52 +104,54 @@
 
 <!-- Timeline Section -->
 <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-8 mr-10">
-        <div class="text-center mb-12 animate-fadeIn">
-            <h2 class="text-3xl font-bold text-emerald-700 mb-2">Kilas Sejarah</h2>
-            <p class="text-gray-600">Perjalanan penting Desa Tanjung Selamat</p>
-            <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 animate-scaleX"></div>
-        </div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 animate-fadeIn">
+                <h2 class="text-3xl font-bold text-emerald-700 mb-2">Kilas Sejarah</h2>
+                <p class="text-gray-600">Perjalanan penting Desa Tanjung Selamat</p>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 animate-scaleX"></div>
+            </div>
 
-        <div class="relative">
-            <!-- Timeline line -->
-            <div class="absolute left-1/2 w-1 h-full bg-emerald-200 transform -translate-x-1/2 animate-drawLine"></div>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 w-1 h-full bg-emerald-200 transform -translate-x-1/2 animate-drawLine hidden md:block"></div>
 
-            <!-- Timeline items -->
-            <div class="space-y-8">
-                <!-- Item 1 -->
-                <div class="relative timeline-item animate-slideInLeft">
-                    <div class="timeline-dot bg-emerald-600 animate-pingOnce"></div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-5/12 ml-auto border-l-4 border-emerald-500 hover:-translate-y-1">
-                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Era Kebun Teh Belawan State</h3>
-                        <p class="text-gray-600">Wilayah ini awalnya merupakan kebun teh yang dikelilingi beberapa kampung seperti La Mente, Tampok, Kuala, Kloni 1 & 2, dan Pokok Pinang.</p>
+                <!-- Timeline items -->
+                <div class="space-y-8">
+                    <!-- Item 1 -->
+                    <div class="relative timeline-item animate-slideInLeft">
+                        <div class="timeline-dot bg-emerald-600 animate-pingOnce"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-[calc(50%-2rem)] md:ml-auto border-l-4 border-emerald-500 hover:-translate-y-1">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Era Kebun Teh Belawan State</h3>
+                            <p class="text-gray-600">Wilayah ini awalnya merupakan kebun teh yang dikelilingi beberapa kampung seperti La Mente, Tampok, Kuala, Kloni 1 & 2, dan Pokok Pinang.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Item 2 -->
-                <div class="relative timeline-item animate-slideInRight delay-100">
-                    <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-300"></div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-5/12 mr-auto border-l-4 border-emerald-500 hover:-translate-y-1">
-                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Tahun 1951 - Penutupan Kebun Teh</h3>
-                        <p class="text-gray-600">Kebun Belawan State tutup dan tanahnya diserahkan kepada masyarakat. Kampung-kampung bergabung menjadi Kampung Tanjung Selamat.</p>
+                    <!-- Item 2 -->
+                    <div class="relative timeline-item animate-slideInRight delay-100">
+                        <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-300"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-[calc(50%-2rem)] md:mr-auto border-l-4 border-emerald-500 hover:-translate-y-1">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Tahun 1951 - Penutupan Kebun Teh</h3>
+                            <p class="text-gray-600">Kebun Belawan State tutup dan tanahnya diserahkan kepada masyarakat. Kampung-kampung bergabung menjadi Kampung Tanjung Selamat.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Item 3 -->
-                <div class="relative timeline-item animate-slideInLeft delay-200">
-                    <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-600"></div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-5/12 ml-auto border-l-4 border-emerald-500 hover:-translate-y-1">
-                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Asal Nama Tanjung Selamat</h3>
-                        <p class="text-gray-600">Berasal dari Pohon Bunga Tanjung yang tetap tegak meski diterjang banjir besar, menjadi simbol keteguhan masyarakat.</p>
+                    <!-- Item 3 -->
+                    <div class="relative timeline-item animate-slideInLeft delay-200">
+                        <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-600"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-[calc(50%-2rem)] md:ml-auto border-l-4 border-emerald-500 hover:-translate-y-1">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Asal Nama Tanjung Selamat</h3>
+                            <p class="text-gray-600">Berasal dari Pohon Bunga Tanjung yang tetap tegak meski diterjang banjir besar, menjadi simbol keteguhan masyarakat.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Item 4 -->
-                <div class="relative timeline-item animate-slideInRight delay-300">
-                    <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-900"></div>
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-5/12 mr-auto border-l-4 border-emerald-500 hover:-translate-y-1">
-                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Tahun 1979 - Perubahan Administratif</h3>
-                        <p class="text-gray-600">Sebagian wilayah bergabung dengan Kota Medan, sisanya menjadi Desa Tanjung Selamat, Kecamatan Sunggal, Kabupaten Deli Serdang.</p>
+                    <!-- Item 4 -->
+                    <div class="relative timeline-item animate-slideInRight delay-300">
+                        <div class="timeline-dot bg-emerald-600 animate-pingOnce delay-900"></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:w-[calc(50%-2rem)] md:mr-auto border-l-4 border-emerald-500 hover:-translate-y-1">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Tahun 1979 - Perubahan Administratif</h3>
+                            <p class="text-gray-600">Sebagian wilayah bergabung dengan Kota Medan, sisanya menjadi Desa Tanjung Selamat, Kecamatan Sunggal, Kabupaten Deli Serdang.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -162,56 +161,57 @@
 
 <!-- Kepala Desa Section -->
 <section class="py-16 bg-white">
-    <div class="container mx-auto px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-emerald-700 mb-2">Daftar Kepala Desa</h2>
-            <p class="text-gray-600">Para pemimpin yang pernah memimpin Desa Tanjung Selamat</p>
-            <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4"></div>
-        </div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-emerald-700 mb-2">Daftar Kepala Desa</h2>
+                <p class="text-gray-600">Para pemimpin yang pernah memimpin Desa Tanjung Selamat</p>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4"></div>
+            </div>
 
-        <div class="overflow-x-auto bg-white rounded-xl shadow-md">
-            <table class="min-w-full">
-                <thead class="bg-emerald-600">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">No</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nama</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Masa Jabatan</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Keterangan</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white">
-                    @php
-                        $data = [
-                            ['SAWINANGUN', '1953 s/d 1961', 'Wakil Kampung'],
-                            ['SARNO', '1961 s/d 1968', 'Wakil Kampung'],
-                            ['BEJO', '1968 s/d 1973', 'Kepala Kampung'],
-                            ['M. YUSUF', '1973 s/d 1981', 'Kepala Kampung'],
-                            ['POLEN PERANGIN-ANGIN', '1982 s/d 1987', 'Pjs. Kepala Desa'],
-                            ['POLEN PERANGIN-ANGIN', '1988 s/d 1989', 'Pejabat Kecamatan'],
-                            ['JONI TARIGAN', '1989 s/d 1992', 'Kepala Desa'],
-                            ['-', '1993', 'Caretaker'],
-                            ['JONI TARIGAN', '1993 s/d 2002', 'Kepala Desa'],
-                            ['KAMTA SEMBIRING', '2002', 'Caretaker'],
-                            ['NURAIDI', '2002 s/d 2007', 'Kepala Desa'],
-                            ['SAKIMAN', '2008', 'Caretaker'],
-                            ['HARIONO', '2008', 'Caretaker'],
-                            ['NURAIDI', '2009 s/d 2015', 'Kepala Desa'],
-                            ['ESTER PARDEDE, S.Sos', '2016', 'Plt Kepala Desa'],
-                            ['NURAIDI', '2016 s/d 2022', 'Kepala Desa'],
-                            ['SAPII ANDINATA', '2022 s/d 2030', 'Kepala Desa'],
-                        ];
-                    @endphp
-
-                    @foreach($data as $index => $d)
-                    <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-gray-50' }} hover:bg-emerald-50 transition-colors duration-300 animate-fadeInRow" style="animation-delay: {{ $index * 50 }}ms">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $index + 1 }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $d[0] }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $d[1] }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $d[2] }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-md">
+                <table class="min-w-full">
+                    <thead class="bg-emerald-600">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">No</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nama</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Masa Jabatan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        @php
+                            $data = [
+                                ['SAWINANGUN', '1953 s/d 1961', 'Wakil Kampung'],
+                                ['SARNO', '1961 s/d 1968', 'Wakil Kampung'],
+                                ['BEJO', '1968 s/d 1973', 'Kepala Kampung'],
+                                ['M. YUSUF', '1973 s/d 1981', 'Kepala Kampung'],
+                                ['POLEN PERANGIN-ANGIN', '1982 s/d 1987', 'Pjs. Kepala Desa'],
+                                ['POLEN PERANGIN-ANGIN', '1988 s/d 1989', 'Pejabat Kecamatan'],
+                                ['JONI TARIGAN', '1989 s/d 1992', 'Kepala Desa'],
+                                ['-', '1993', 'Caretaker'],
+                                ['JONI TARIGAN', '1993 s/d 2002', 'Kepala Desa'],
+                                ['KAMTA SEMBIRING', '2002', 'Caretaker'],
+                                ['NURAIDI', '2002 s/d 2007', 'Kepala Desa'],
+                                ['SAKIMAN', '2008', 'Caretaker'],
+                                ['HARIONO', '2008', 'Caretaker'],
+                                ['NURAIDI', '2009 s/d 2015', 'Kepala Desa'],
+                                ['ESTER PARDEDE, S.Sos', '2016', 'Plt Kepala Desa'],
+                                ['NURAIDI', '2016 s/d 2022', 'Kepala Desa'],
+                                ['SAPII ANDINATA', '2022 s/d 2030', 'Kepala Desa'],
+                            ];
+                        @endphp
+                        @foreach($data as $index => $d)
+                        <tr class="{{ $index % 2 === 0 ? 'bg-white' : 'bg-gray-50' }} hover:bg-emerald-50 transition-colors duration-300 animate-fadeInRow" style="animation-delay: {{ $index * 50 }}ms">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $index + 1 }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $d[0] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $d[1] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $d[2] }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </section>
@@ -237,9 +237,9 @@
         .timeline-dot {
             left: 20px;
         }
-
         .timeline-item > div:last-child {
             margin-left: 48px;
+            width: calc(100% - 48px) !important;
         }
     }
 
@@ -439,6 +439,7 @@
     .transition-all {
         transition-property: all;
     }
+
     .duration-300 {
         transition-duration: 300ms;
     }
@@ -493,5 +494,4 @@ document.addEventListener('DOMContentLoaded', function() {
     setupScrollAnimations();
 });
 </script>
-
 @endsection
