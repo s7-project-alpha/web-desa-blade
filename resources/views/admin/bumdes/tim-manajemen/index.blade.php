@@ -1,20 +1,21 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="flex justify-between items-center mb-6">
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
     <div>
         <h1 class="text-2xl font-bold text-gray-900">Tim Manajemen BUMDes</h1>
         <p class="text-gray-600">Kelola tim manajemen {{ $bumdes->nama }}</p>
     </div>
-    <div class="flex space-x-2">
-        <a href="{{ route('admin.bumdes.tim-manajemen.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium flex items-center">
+    <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-4 sm:mt-0">
+        <a href="{{ route('admin.bumdes.tim-manajemen.create') }}" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center">
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"></path>
             </svg>
-            Tambah Tim Manajemen
+            <span class="hidden xs:inline">Tambah Tim</span>
+            <span class="xs:hidden">Tambah Tim Manajemen</span>
         </a>
-        <a href="{{ route('admin.bumdes.index') }}" class="flex items-center bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium">
-             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+        <a href="{{ route('admin.bumdes.index') }}" class="w-full sm:w-auto flex items-center justify-center bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
             </svg>
             Kembali
@@ -76,9 +77,9 @@
                             <div class="text-sm text-gray-900">{{ $tim->urutan }}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-center space-x-4">
                                 <a href="{{ route('admin.bumdes.tim-manajemen.edit', $tim) }}" class="text-blue-600 hover:text-blue-900" title="Edit">
-                                    <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                     </svg>
                                 </a>
@@ -86,7 +87,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900" title="Hapus">
-                                        <svg class="w-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                                         </svg>
                                     </button>
@@ -102,7 +103,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                 </svg>
                                 <p class="text-lg font-medium">Belum ada tim manajemen</p>
-                                <p class="text-sm">Klik tombol "Tambah Tim Manajemen" untuk menambah data</p>
+                                <p class="text-sm">Klik tombol "Tambah Tim" untuk menambah data</p>
                             </div>
                         </td>
                     </tr>

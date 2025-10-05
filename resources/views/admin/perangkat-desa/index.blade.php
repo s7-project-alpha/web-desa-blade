@@ -1,17 +1,22 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="flex justify-between items-center mb-6">
-    <div>
-        <h1 class="text-2xl font-bold text-gray-900">Perangkat Desa</h1>
-        <p class="text-gray-600">Kelola data perangkat desa, kepala dusun, dan BPD</p>
+<div class="mb-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-900">Perangkat Desa</h1>
+            <p class="text-gray-600">Kelola data perangkat desa, kepala dusun, dan BPD</p>
+        </div>
+        <a href="{{ route('admin.perangkat-desa.create') }}"class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200 w-full sm:w-auto">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <span>Tambah Perangkat</span>
+        </a>
+
     </div>
-    <a href="{{ route('admin.perangkat-desa.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium flex items-center">
-        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"></path>
-        </svg>
-        Tambah Perangkat
-    </a>
 </div>
 
 @if(session('success'))

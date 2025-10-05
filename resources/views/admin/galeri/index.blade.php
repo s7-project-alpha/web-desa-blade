@@ -2,13 +2,14 @@
 
 @section('content')
 <div class="mb-6">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
             <h1 class="text-2xl font-bold text-gray-900">Galeri Desa</h1>
             <p class="text-gray-600">Kelola foto-foto kegiatan dan dokumentasi desa</p>
         </div>
-        <a href="{{ route('admin.galeri.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
-            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 20 20">
+        <a href="{{ route('admin.galeri.create') }}"
+           class="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200 w-full sm:w-auto justify-center sm:justify-start">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
             </svg>
             Tambah Galeri

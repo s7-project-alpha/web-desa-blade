@@ -7,19 +7,15 @@
         <span>/</span>
         <span class="text-gray-900">{{ Str::limit($galeri->judul, 30) }}</span>
     </div>
-    <div class="flex justify-between items-start">
-        <div>
-            <h1 class="text-2xl font-bold text-gray-900">{{ $galeri->judul }}</h1>
-            <p class="text-gray-600">Detail foto galeri</p>
-        </div>
-        <div class="flex space-x-3">
-            <a href="{{ route('admin.galeri.edit', $galeri) }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
+        <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-4 sm:mt-0">
+            <a href="{{ route('admin.galeri.edit', $galeri) }}" class="transition duration-200 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium flex items-center justify-center">
                 <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                 </svg>
                 Edit Galeri
             </a>
-            <a href="{{ route('public.galeri.detail', $galeri->slug) }}" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            <a href="{{ route('public.galeri.detail', $galeri->slug) }}" target="_blank" class="bg-green-600 hover:bg-green-700 transition duration-200 w-full sm:w-auto flex items-center justify-center text-white px-4 py-2 rounded-lg font-medium">
                 <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2M7 9l5 5m0 0l5-5m-5 5V3"></path>
                 </svg>

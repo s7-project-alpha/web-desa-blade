@@ -22,7 +22,7 @@
     <div class="lg:col-span-2 space-y-6">
         <!-- Category Info -->
         <div class="glass-card rounded-2xl p-8">
-            <div class="flex items-start justify-between mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 space-y-3 sm:space-y-0">
                 <div class="flex items-center space-x-4">
                     <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background-color: {{ $kategoriBerita->warna }}20; color: {{ $kategoriBerita->warna }};">
                         @if($kategoriBerita->icon)
@@ -36,11 +36,13 @@
                         <p class="text-gray-600">{{ $kategoriBerita->slug }}</p>
                     </div>
                 </div>
-                <div class="flex space-x-2">
+                <div class="flex">
                     <a href="{{ route('admin.kategori-berita.edit', $kategoriBerita->slug) }}"
-                       class="btn-modern px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    class="w-full sm:w-auto text-center btn-modern px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-200">
+                        <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414
+                                    a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
                         Edit
                     </a>
