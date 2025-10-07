@@ -198,6 +198,29 @@ class AdminController extends Controller
         // Get recent activities
         $recentActivities = $this->getRecentActivities();
 
+         // Visitor statistics
+        $visitorStats = [
+            'total_unique_visitors' => \App\Models\VisitorLog::getTotalUniqueVisitors(),
+            'total_page_views' => \App\Models\VisitorLog::getTotalPageViews(),
+            'visitors_today' => \App\Models\VisitorLog::getVisitorsToday(),
+            'page_views_today' => \App\Models\VisitorLog::getPageViewsToday(),
+            'visitors_this_month' => \App\Models\VisitorLog::getVisitorsThisMonth(),
+            'page_views_this_month' => \App\Models\VisitorLog::getPageViewsThisMonth(),
+            'visitor_growth' => \App\Models\VisitorLog::calculateGrowth(),
+        ];
+
+        // Visitor trend
+        $visitorTrend = \App\Models\VisitorLog::getVisitorTrend(7);
+
+        // Most visited pages
+        $mostVisitedPages = \App\Models\VisitorLog::getMostVisitedPages(5);
+
+        // Device statistics
+        $deviceStats = \App\Models\VisitorLog::getDeviceStats();
+
+        // Browser statistics
+        $browserStats = \App\Models\VisitorLog::getBrowserStats(5);
+
         return view('admin.dashboard', compact(
             'stats',
             'demografi',
@@ -216,8 +239,19 @@ class AdminController extends Controller
             'beritaByKategori',
             'beritaTrend',
             'alerts',
-            'recentActivities'
+            'recentActivities',
+            'stats',
+            'visitorStats',      // PASTIKAN INI ADA
+            'visitorTrend',      // PASTIKAN INI ADA
+            'mostVisitedPages',  // PASTIKAN INI ADA
+            'deviceStats',       // PASTIKAN INI ADA
+            'browserStats'       // PASTIKAN INI ADA
         ));
+
+
+
+
+
     }
 
     /**

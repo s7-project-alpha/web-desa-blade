@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // Register the admin middleware
         $middleware->alias([
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
+            'web' => \App\Http\Middleware\TrackVisitor::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

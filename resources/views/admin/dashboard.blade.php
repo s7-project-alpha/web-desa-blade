@@ -424,6 +424,174 @@
     </div>
 </div>
 
+<!-- Visitor Statistics Section -->
+<div class="mb-8">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">
+        <svg class="w-5 h-5 inline-block mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+        </svg>
+        Statistik Kunjungan Website
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- Total Unique Visitors -->
+        <div class="bg-white rounded-lg shadow p-6 border-l-4 border-indigo-500">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-gray-600">Total Pengunjung Unik</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($visitorStats['total_unique_visitors']) }}</p>
+                    <p class="text-xs text-gray-500 mt-1">Semua waktu</p>
+                </div>
+                <div class="bg-indigo-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Page Views -->
+        <div class="bg-white rounded-lg shadow p-6 border-l-4 border-cyan-500">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-gray-600">Total Halaman Dilihat</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($visitorStats['total_page_views']) }}</p>
+                    <p class="text-xs text-gray-500 mt-1">Semua waktu</p>
+                </div>
+                <div class="bg-cyan-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitors Today -->
+        <div class="bg-white rounded-lg shadow p-6 border-l-4 border-teal-500">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-gray-600">Pengunjung Hari Ini</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($visitorStats['visitors_today']) }}</p>
+                    <p class="text-xs text-gray-500 mt-1">{{ number_format($visitorStats['page_views_today']) }} halaman dilihat</p>
+                </div>
+                <div class="bg-teal-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitors This Month -->
+        <div class="bg-white rounded-lg shadow p-6 border-l-4 border-emerald-500">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm text-gray-600">Pengunjung Bulan Ini</p>
+                    <p class="text-2xl font-bold text-gray-900">{{ number_format($visitorStats['visitors_this_month']) }}</p>
+                    <p class="text-xs text-{{ $visitorStats['visitor_growth'] >= 0 ? 'green' : 'red' }}-600 mt-1">
+                        @if($visitorStats['visitor_growth'] > 0)
+                            ↗ +{{ $visitorStats['visitor_growth'] }}% vs bulan lalu
+                        @elseif($visitorStats['visitor_growth'] < 0)
+                            ↘ {{ $visitorStats['visitor_growth'] }}% vs bulan lalu
+                        @else
+                            → Tidak ada perubahan
+                        @endif
+                    </p>
+                </div>
+                <div class="bg-emerald-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visitor Trend Chart & Device Stats -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Visitor Trend -->
+        <div class="lg:col-span-2 bg-white rounded-lg shadow p-6">
+            <h4 class="text-md font-semibold text-gray-900 mb-4">Tren Kunjungan (7 Hari Terakhir)</h4>
+            <div class="h-64">
+                <canvas id="visitorTrendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Device & Browser Stats -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h4 class="text-md font-semibold text-gray-900 mb-4">Statistik Perangkat</h4>
+            <div class="space-y-4">
+                @php
+                    $totalDevices = array_sum($deviceStats->toArray());
+                @endphp
+                @foreach(['mobile' => 'Mobile', 'desktop' => 'Desktop', 'tablet' => 'Tablet'] as $key => $label)
+                    @php
+                        $count = $deviceStats[$key] ?? 0;
+                        $percentage = $totalDevices > 0 ? round(($count / $totalDevices) * 100, 1) : 0;
+                    @endphp
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-600">{{ $label }}</span>
+                            <span class="font-medium text-gray-900">{{ $percentage }}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-{{ $key == 'mobile' ? 'blue' : ($key == 'desktop' ? 'green' : 'purple') }}-600 h-2 rounded-full" style="width: {{ $percentage }}%"></div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <h5 class="text-sm font-semibold text-gray-900 mb-3">Browser Populer</h5>
+                <div class="space-y-2">
+                    @foreach($browserStats as $browser)
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">{{ $browser->browser }}</span>
+                        <span class="font-medium text-gray-900">{{ number_format($browser->count) }}</span>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Most Visited Pages -->
+    <div class="mt-6 bg-white rounded-lg shadow p-6">
+        <h4 class="text-md font-semibold text-gray-900 mb-4">Halaman Paling Banyak Dikunjungi</h4>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Halaman</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Kunjungan</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @forelse($mostVisitedPages as $index => $page)
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $index + 1 }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900">
+                            <div class="truncate max-w-md" title="{{ $page->page_url }}">
+                                {{ parse_url($page->page_url, PHP_URL_PATH) ?? '/' }}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium">
+                            {{ number_format($page->views) }}
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3" class="px-6 py-4 text-center text-sm text-gray-500">Belum ada data kunjungan</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <!-- Pengajuan Surat Status -->
 @if($stats['total_pengajuan_surat'] > 0)
 <div class="bg-white rounded-lg shadow mb-8">
@@ -481,14 +649,59 @@
 @endif
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Add any JavaScript for dashboard interactivity
-    document.addEventListener('DOMContentLoaded', function() {
-        // Auto-refresh dashboard every 5 minutes
-        setTimeout(function() {
-            window.location.reload();
-        }, 300000);
-    });
+    // Visitor Trend Chart
+    const visitorTrendCtx = document.getElementById('visitorTrendChart');
+    if (visitorTrendCtx) {
+        new Chart(visitorTrendCtx, {
+            type: 'line',
+            data: {
+                labels: {!! json_encode(array_column($visitorTrend, 'label')) !!},
+                datasets: [
+                    {
+                        label: 'Pengunjung Unik',
+                        data: {!! json_encode(array_column($visitorTrend, 'visitors')) !!},
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Halaman Dilihat',
+                        data: {!! json_encode(array_column($visitorTrend, 'page_views')) !!},
+                        borderColor: 'rgb(16, 185, 129)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Auto-refresh dashboard
+    setTimeout(function() {
+        window.location.reload();
+    }, 300000); // 5 minutes
 </script>
 @endpush
 
